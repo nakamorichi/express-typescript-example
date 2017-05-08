@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es2017",
+		"noImplicitAny": true,
+		"removeComments": false,
+		"sourceMap": true,
+		"outDir": "lib",
+		"rootDir": "src",
+		"baseUrl": "src",
+		"strict": true
+	},
+	"include": ["src/**/*", "settings.ts"]
+}

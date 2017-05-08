@@ -1,0 +1,43 @@
+{
+	"name": "express-typescript-example",
+	"version": "1.0.0",
+	"description": "Example of setting up Express.js API server using TypeScript",
+	"keywords": ["express", "typescript", "example"],
+	"author": "Petri Kivikangas <petri.kivikangas@protonmail.com>",
+	"license": "Apache-2.0",
+	"main": "lib",
+	"engines": {
+		"node": ">=7.6"
+	},
+	"scripts": {
+		"build": "npm run clear && tsc",
+		"clear": "del-cli lib/* log/* !.gitignore",
+		"start": "cross-env NODE_ENV=production NODE_PATH=lib node .",
+		"start:dev": "cross-env NODE_ENV=development NODE_PATH=src nodemon -e ts -w src -x ts-node --inspect src",
+		"test": "cross-env NODE_ENV=test NODE_PATH=lib mocha --recursive lib/test"
+	},
+	"dependencies": {
+		"body-parser": "^1.17.0",
+		"cross-env": "^4.0.0",
+		"express": "^4.15.0",
+		"morgan": "^1.8.0",
+		"winston": "^2.3.0"
+	},
+	"devDependencies": {
+		"@types/body-parser": "^1.16.0",
+		"@types/chai": "^3.5.0",
+		"@types/express": "^4.0.0",
+		"@types/mocha": "^2.2.0",
+		"@types/morgan": "^1.7.0",
+		"@types/node": "^7.0.0",
+		"@types/winston": "^2.3.0",
+		"chai": "^3.5.0",
+		"del-cli": "^0.2.0",
+		"mocha": "^3.3.0",
+		"nodemon": "^1.11.0",
+		"ts-node": "^3.0.0",
+		"tslint": "^4.0.0",
+		"tslint-config-airbnb": "^1.1.0",
+		"typescript": "^2.2.0"
+	}
+}
