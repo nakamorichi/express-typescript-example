@@ -10,7 +10,7 @@ import { initRoutes } from 'routes';
 
 export class Server {
 	public app: Express.Application;
-	public logger: Winston.LoggerInstance;
+	public log: Winston.LoggerInstance;
 	public router: Express.Router;
 
 	constructor() {
@@ -22,7 +22,7 @@ export class Server {
 
 	public start() {
 		this.app.listen(settings.PORT);
-		this.logger.info(`Server started at ${settings.PORT}`);
+		this.log.info(`Server started at ${settings.PORT}`);
 	}
 
 	private setConfig() {
@@ -36,7 +36,7 @@ export class Server {
 
 	private setLogger() {
 		// Set up application logging
-		this.logger = new Winston.Logger({
+		this.log = new Winston.Logger({
 			transports: [
 				new Winston.transports.File({
 					level: 'info',
@@ -61,7 +61,7 @@ export class Server {
 		const morganOptions: Morgan.Options = {
 			stream: {
 				write: (message) => {
-					this.logger.info(message);
+					this.log.info(message);
 				},
 			},
 		};

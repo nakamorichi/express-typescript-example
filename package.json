@@ -1,19 +1,24 @@
 {
 	"name": "express-typescript-example",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Example of setting up Express.js API server using TypeScript",
-	"keywords": ["express", "typescript", "example"],
+	"keywords": [
+		"express",
+		"typescript",
+		"example"
+	],
 	"author": "Petri Kivikangas <petri.kivikangas@protonmail.com>",
 	"license": "Apache-2.0",
-	"main": "lib",
+	"main": "lib/app.js",
 	"engines": {
 		"node": ">=7.6"
 	},
 	"scripts": {
-		"build": "npm run clear && tsc",
+		"build": "npm run lint && npm run clear && tsc",
 		"clear": "del-cli lib/* log/* !.gitignore",
+		"lint": "tslint 'src/**/*.ts'",
 		"start": "cross-env NODE_ENV=production NODE_PATH=lib node .",
-		"start:dev": "cross-env NODE_ENV=development NODE_PATH=src nodemon -e ts -w src -x ts-node --inspect src",
+		"start:dev": "cross-env NODE_ENV=development NODE_PATH=src nodemon -e ts -w src -x ts-node --inspect src/app.ts",
 		"test": "cross-env NODE_ENV=test NODE_PATH=lib mocha --recursive lib/test"
 	},
 	"dependencies": {
