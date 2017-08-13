@@ -1,6 +1,6 @@
 {
 	"name": "express-typescript-example",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "Example of setting up Express.js API server using TypeScript",
 	"keywords": [
 		"express",
@@ -11,15 +11,15 @@
 	"license": "Apache-2.0",
 	"main": "lib/app.js",
 	"engines": {
-		"node": ">=7.6"
+		"node": ">=8.2"
 	},
 	"scripts": {
-		"build": "npm run lint && npm run clear && tsc",
+		"build": "npm run lint && npm run clear && tsc && abspath",
 		"clear": "del-cli lib/* log/* !.gitignore",
 		"lint": "tslint 'src/**/*.ts'",
-		"start": "cross-env NODE_ENV=production NODE_PATH=lib node .",
+		"start": "cross-env NODE_ENV=production node .",
 		"start:dev": "cross-env NODE_ENV=development NODE_PATH=src nodemon -e ts -w src -x ts-node --inspect src/app.ts",
-		"test": "cross-env NODE_ENV=test NODE_PATH=lib mocha --recursive lib/test"
+		"test": "cross-env NODE_ENV=test mocha --recursive lib/test"
 	},
 	"dependencies": {
 		"body-parser": "^1.17.0",
@@ -36,6 +36,7 @@
 		"@types/morgan": "^1.7.0",
 		"@types/node": "^7.0.0",
 		"@types/winston": "^2.3.0",
+		"absolute-path-converter": "^1.0.4",
 		"chai": "^3.5.0",
 		"del-cli": "^0.2.0",
 		"mocha": "^3.3.0",
