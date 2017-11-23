@@ -7,7 +7,19 @@
 		"typescript",
 		"example"
 	],
-	"author": "Petri Kivikangas <petri.kivikangas@protonmail.com>",
+	"author": {
+		"name": "Petri Kivikangas",
+		"email": "petri.kivikangas@protonmail.com",
+		"url": "https://github.com/Kitanotori"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Kitanotori/express-typescript-example"
+	},
+	"bugs": {
+		"url": "https://github.com/Kitanotori/express-typescript-example/issues"
+	},
+	"homepage": "https://github.com/Kitanotori/express-typescript-example#readme",
 	"license": "Apache-2.0",
 	"main": "lib/app.js",
 	"engines": {
@@ -16,12 +28,12 @@
 	"scripts": {
 		"build": "npm run lint && npm run clear && tsc && abspath",
 		"build:docker": "npm install && npm run build && npm prune --production && npm run build:docker:raw && npm install",
-		"build:docker:raw": "docker build -t express-typescript-example .",
+		"build:docker:raw": "docker build -t kitanotori/express-typescript-example .",
 		"clear": "del-cli 'lib/*' 'log/*' '!.gitignore'",
 		"lint": "tslint --project tsconfig.json --config tslint.json --format stylish",
 		"start": "cross-env NODE_ENV=production node .",
 		"start:dev": "cross-env NODE_ENV=development NODE_PATH=src nodemon -e ts -w src -x ts-node --inspect src/app.ts",
-		"start:docker": "docker run -d -p 3000:3000 express-typescript-example",
+		"start:docker": "docker run -d -p 3000:3000 kitanotori/express-typescript-example",
 		"test": "cross-env NODE_ENV=test mocha --recursive lib/test"
 	},
 	"dependencies": {
