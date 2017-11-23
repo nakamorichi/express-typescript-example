@@ -1,14 +1,21 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es2017",
-		"noImplicitAny": true,
-		"removeComments": false,
-		"sourceMap": true,
-		"outDir": "lib",
-		"rootDir": "src",
 		"baseUrl": "src",
-		"strict": true
-	},
-	"include": ["src/**/*", "settings.ts"]
+		"lib": ["dom", "es2017"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"outDir": "lib",
+		"removeComments": true,
+		"rootDir": "src",
+		"sourceMap": true,
+		"target": "es2017",
+
+		"alwaysStrict": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"strictNullChecks": true
+	}
 }

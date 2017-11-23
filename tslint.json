@@ -1,6 +1,7 @@
 {
 	"extends": ["tslint-config-airbnb"],
 	"rules": {
-		"ter-indent": [true, "tab"]
+		"ter-indent": [true, "tab"],
+		"strict-boolean-expressions": false
 	}
 }
